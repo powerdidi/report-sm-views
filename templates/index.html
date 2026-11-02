@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>گزارش خدمات الکترونیکی</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="tp-wrap">
+
+    <div class="tp-podium">
+
+        <!-- رتبه 2 -->
+        <div class="tp-col rank-2">
+
+            <div class="tp-col-title">
+                {{ rows[1][0] }}
+            </div>
+
+            <div class="tp-col-value">
+                {{ rows[1][1] }}
+            </div>
+
+            <div class="tp-block">
+                <span class="tp-block-num">۲</span>
+            </div>
+
+        </div>
+
+
+        <!-- رتبه 1 -->
+        <div class="tp-col rank-1">
+
+            <div class="tp-col-title">
+                {{ rows[0][0] }}
+            </div>
+
+            <div class="tp-col-value">
+                {{ rows[0][1] }}
+            </div>
+
+            <div class="tp-block">
+                <span class="tp-block-num">۱</span>
+            </div>
+
+        </div>
+
+
+        <!-- رتبه 3 -->
+        <div class="tp-col rank-3">
+
+            <div class="tp-col-title">
+                {{ rows[2][0] }}
+            </div>
+
+            <div class="tp-col-value">
+                {{ rows[2][1] }}
+            </div>
+
+            <div class="tp-block">
+                <span class="tp-block-num">۳</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="tp-rest">
+
+        {% for row in rows[3:10] %}
+
+        <div class="tp-row"
+             style="--accent: {{ ['#6366f1', '#0ea5e9', '#14b8a6', '#84cc16', '#eab308', '#f97316', '#ef4444'][loop.index0] }};">
+
+            <span class="tp-row-rank">
+                {{ to_persian_rank(loop.index0 + 4) }}
+            </span>
+
+            <span class="tp-row-title">
+                {{ row[0] }}
+            </span>
+
+            <span class="tp-row-value">
+                {{ row[1] }}
+            </span>
+
+        </div>
+
+        {% endfor %}
+
+        <p class="tp-heading">
+            ۱۰ خدمت پراستفاده ماه گذشته
+        </p>
+
+        <p class="tp-subheading">
+            بر اساس تعداد بازدید کاربران
+        </p>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
