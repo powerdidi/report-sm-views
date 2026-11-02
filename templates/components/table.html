@@ -1,0 +1,39 @@
+<div class="table-wrapper">
+
+<table>
+
+    <thead>
+
+        <tr>
+
+            {% for header in headers %}
+                <th  class="{% if loop.first %}title-col{% else %}number-col{% endif %}">
+                    {{ header }}
+                </th>
+            {% endfor %}
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {% for row in rows %}
+
+        <tr>
+
+            {% for cell in row %}
+                <td class="{% if loop.first %}title-col{% else %}number-col{% endif %}">
+                    {{ cell if cell == cell else "" }}
+                </td>
+            {% endfor %}
+
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+</div>
